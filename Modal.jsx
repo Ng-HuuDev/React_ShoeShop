@@ -8,17 +8,35 @@ export default function Modal({
   let renderProduct = () => {
     return dataCart.map((item) => {
       return (
-        // <tr>
-        //   <td> {item.id} </td>
+        // <tr key={item.index} className="fw-bold">
+        //   <td> {item.name} </td>
         //   <td>
-        //     {" "}
         //     <img width={100} src={item.image} alt="" />{" "}
         //   </td>
-        //   <td> {item.name} </td>
         //   <td> {item.price} </td>
-        //   <td> 0 </td>
         //   <td>
-        //     <button className="btn btn-danger"> Delete </button>
+        //     <button className="btn btn-success"> - </button>
+        //     <span className="mx-3">{item.total}</span>
+        //     <button
+        //       onClick={() => {
+        //         handleIncrease(item.id);
+        //       }}
+        //       className="btn btn-warning"
+        //     >
+        //       {" "}
+        //       +{" "}
+        //     </button>
+        //   </td>
+        //   <td>
+        //     <button
+        //       onClick={() => {
+        //         handleRemoveFromCart(item.id);
+        //       }}
+        //       className="btn btn-danger"
+        //     >
+        //       {" "}
+        //       Delete{" "}
+        //     </button>
         //   </td>
         // </tr>
         <div className="row col-3 m-1 p-1 text-center border  border-2 border-success rounded ">

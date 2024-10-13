@@ -21,17 +21,15 @@ export default function ExShoe() {
 
   // them sp
   let handleAddToCart = (shoe) => {
-    // console.log("🚀 ~ handleAddToCart ~ shoe:", shoe);
     // let data = { ...shoe, total: 1 };
-    // let newCart = [...cart, shoe];
+    // let newCart = [...cart, data];
     // setCart(newCart);
-    // dung findIndex de biet la da co trong gio hang hay chua
-    // th1: chua co trong gio hang => them vao gio hang
-    // th2: da co trong gio hang => tang so luong
+    // su dung findIndex xem sp co trong gio hang chua
     let cloneCart = [...cart];
     let index = cloneCart.findIndex((item) => item.id == shoe.id);
     if (index == -1) {
       // ko tim thay
+      // th1: chua co trong gio hang => them vao gio hang
       let data = { ...shoe, total: 1 };
       cloneCart.push(data);
     } else {
@@ -43,25 +41,21 @@ export default function ExShoe() {
 
   // xoa sp da chon
   let handleRemoveFromCart = (idShoe) => {
-    let newCart = cart.filter((shoe) => {
-      return shoe.id !== idShoe;
-    });
+    let newCart = cart.filter((shoe) => shoe.id !== idShoe);
     setCart(newCart);
   };
 
   // tang / giam san pham
   let handleChangeTotal = (idShoe, option) => {
-    // option: +1 or -1 / tang hoac giam so luong
-    console.log("🚀 ~ ExShoe ~ idShoe:", idShoe);
+    // option: +1 or -1 / tang / giam so luong
     let cloneCart = [...cart];
-    // tim vi tri sp can tang so luong
-    let index = cloneCart.findIndex((item) => (item.id = idShoe));
-    // cap nhat lai value cua object vua tim thay
+    // tim vi tri cua sp
+    let index = cloneCart.findIndex((item) => item.id == idShoe);
+    // cap nhat lai value cua objdect vua tim thay
     cloneCart[index].total = cloneCart[index].total + option;
-    // setState = render  lai giao dien
+    // setState => render lai giao dien
     setCart(cloneCart);
   };
-
   return (
     <div className="row align-items-start">
       <ListShoe

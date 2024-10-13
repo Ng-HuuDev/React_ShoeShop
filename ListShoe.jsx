@@ -17,8 +17,7 @@ export default function ListShoe(props) {
             }}
             className="btn btn-danger"
           >
-            {" "}
-            ADD{" "}
+            ADD
           </button>
           <button
             onClick={() => {
@@ -26,7 +25,6 @@ export default function ListShoe(props) {
             }}
             className="btn btn-success"
           >
-            {" "}
             Delete
           </button>
         </div>
