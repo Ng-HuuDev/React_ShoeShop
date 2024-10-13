@@ -53,6 +53,10 @@ export default function ExShoe() {
     let index = cloneCart.findIndex((item) => item.id == idShoe);
     // cap nhat lai value cua objdect vua tim thay
     cloneCart[index].total = cloneCart[index].total + option;
+    // kiem tra neu so luong = 0 thi xoa khoi gio  hang
+    if (cloneCart[index].total == 0) {
+      cloneCart.splice(index, 1);
+    }
     // setState => render lai giao dien
     setCart(cloneCart);
   };

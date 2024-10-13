@@ -1,3 +1,4 @@
+import { Button, Popconfirm } from "antd";
 import React from "react";
 
 export default function Modal({
@@ -46,15 +47,30 @@ export default function Modal({
             <strong>Price</strong>: {item.price}$
           </p>
           <div className="mb-3">
-            <button
-              onClick={() => {
-                handleChangeTotal(item.id, -1);
-              }}
-              className=" btn btn-danger"
-            >
-              {" "}
-              -{" "}
-            </button>
+            {
+              // neu total la 1 thi render btn xoa
+              item.total === 1 ? (
+                <Popconfirm
+                  title="Xoa san pham nay"
+                  description="Ban muon xoa khong"
+                  onConfirm={() => {}}
+                  okText="Yes"
+                >
+                  <Button type="primary">-</Button>
+                </Popconfirm>
+              ) : (
+                <button
+                  onClick={() => {
+                    handleChangeTotal(item.id, -1);
+                  }}
+                  className="btn btn-success"
+                >
+                  {" "}
+                  -{" "}
+                </button>
+              )
+            }
+
             <span className="fw-bold mx-2">{item.total}</span>
             <button
               onClick={() => {
