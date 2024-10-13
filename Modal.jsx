@@ -53,7 +53,9 @@ export default function Modal({
                 <Popconfirm
                   title="Xoa san pham nay"
                   description="Ban muon xoa khong"
-                  onConfirm={() => {}}
+                  onConfirm={() => {
+                    handleRemoveFromCart(item.id);
+                  }}
                   okText="Yes"
                 >
                   <Button type="primary">-</Button>
