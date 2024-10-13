@@ -1,33 +1,20 @@
 import React from "react";
+import ItemProduct from "./ItemProduct";
 
 export default function ListShoe(props) {
   console.log(props);
 
   let { dataShoe, handleRemoveFromList, handleAddToCart } = props;
-  let renderList = (shoe) => {
+  let renderList = () => {
     // image, name, btn, add
     return dataShoe.map((shoe, index) => {
       return (
-        <div key={index} className="col-3">
-          <img className="w-100" src={shoe.image} alt="" />
-          {/* <p className=""> {shoe.name}</p> */}
-          <button
-            onClick={() => {
-              handleAddToCart(shoe);
-            }}
-            className="btn btn-danger"
-          >
-            ADD
-          </button>
-          <button
-            onClick={() => {
-              handleRemoveFromList(shoe.id);
-            }}
-            className="btn btn-success"
-          >
-            Delete
-          </button>
-        </div>
+        <ItemProduct
+          key={index}
+          shoe={shoe}
+          handleRemoveFromList={handleRemoveFromList}
+          handleAddToCart={handleAddToCart}
+        />
       );
     });
   };

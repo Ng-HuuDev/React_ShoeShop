@@ -57,6 +57,7 @@ export default function Modal({
                     handleRemoveFromCart(item.id);
                   }}
                   okText="Yes"
+                  showCancel={false}
                 >
                   <Button type="primary">-</Button>
                 </Popconfirm>
